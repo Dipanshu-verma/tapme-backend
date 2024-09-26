@@ -22,7 +22,7 @@ exports.schema = (0, graphql_yoga_1.createSchema)({
     }
 
     type Query {
-      getUser(id: ID!): User
+      getUser(username: String!): User
     }
 
     type Mutation {
@@ -32,11 +32,11 @@ exports.schema = (0, graphql_yoga_1.createSchema)({
   `,
     resolvers: {
         Query: {
-            getUser: (_1, _a) => __awaiter(void 0, [_1, _a], void 0, function* (_, { id }) {
+            getUser: (_1, _a) => __awaiter(void 0, [_1, _a], void 0, function* (_, { username }) {
                 const { data, error } = yield supabase_1.supabase
                     .from('users')
                     .select('*')
-                    .eq('id', id)
+                    .eq('username', username)
                     .single();
                 if (error)
                     throw new Error(error.message);
