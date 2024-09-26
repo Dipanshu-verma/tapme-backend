@@ -11,7 +11,7 @@ export const schema = createSchema({
     }
 
     type Query {
-      getUser(id: ID!): User
+      getUser(username: String!): User
     }
 
     type Mutation {
@@ -21,11 +21,11 @@ export const schema = createSchema({
   `,
   resolvers: {
     Query: {
-      getUser: async (_: any, { id }: { id: string }) => {
+      getUser: async (_: any, { username }: { username: string }) => {
         const { data, error } = await supabase
           .from('users')
           .select('*')
-          .eq('id', id)
+          .eq('username', username)
           .single();
 
         if (error) throw new Error(error.message);
