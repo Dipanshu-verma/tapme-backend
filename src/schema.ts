@@ -27,8 +27,12 @@ export const schema = createSchema({
           .eq('username', username)
           .single();
 
+          if(!data || data.length==0){
+            console.log("runssssssssssssssss");
+            return null;
+          }
           if (error && error.code === 'PGRST404') {  
-            return null; 
+            return null;  
           }
       
         if (error) throw new Error(error.message);
