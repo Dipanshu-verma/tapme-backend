@@ -28,7 +28,6 @@ export const schema = createSchema({
           .single();
 
           if(!data || data.length==0){
-            console.log("runssssssssssssssss");
             return null;
           }
           if (error && error.code === 'PGRST404') {  
