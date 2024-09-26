@@ -1,9 +1,8 @@
-// src/schema.ts
 import { createSchema } from 'graphql-yoga';
-import { supabase } from './supabase'; // Ensure supabase.ts is correctly set up
+import { supabase } from './supabase';  
 
 export const schema = createSchema({
-  typeDefs: /* GraphQL */ `
+  typeDefs:   `
     type User {
       id: ID!
       username: String!
